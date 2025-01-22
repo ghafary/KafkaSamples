@@ -3,6 +3,7 @@ version: '3.8'
 services:
   zookeeper:
     image: bitnami/zookeeper:latest
+    tmpfs: "/zktmp"
     container_name: zookeeper
     environment:
       ALLOW_ANONYMOUS_LOGIN: "no" # Disable anonymous access for Zookeeper

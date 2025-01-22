@@ -11,8 +11,20 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.PubSub.Producer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerCompose", "DockerCompose", "{CF42E1FE-BA1E-43AB-9B85-D22B2720C449}"
 	ProjectSection(SolutionItems) = preProject
+		DockerCompose\docker-compose-cluster-new.yml = DockerCompose\docker-compose-cluster-new.yml
+		DockerCompose\docker-compose-cluster.yml = DockerCompose\docker-compose-cluster.yml
 		DockerCompose\docker-compose.yml = DockerCompose\docker-compose.yml
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KafkaFlow", "KafkaFlow", "{2686E5F1-24E3-4310-8360-336ADBC83D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.Domain", "KafkaFlow\KafkaSample.Domain\KafkaSample.Domain.csproj", "{0264C37D-2CC7-4FB5-9798-D1AB44E689E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.ReadStack", "KafkaFlow\KafkaSample.ReadStack\KafkaSample.ReadStack.csproj", "{BD5D6E31-5D33-452E-B964-D71111FBBBF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.WriteStack", "KafkaFlow\KafkaSample.WriteStack\KafkaSample.WriteStack.csproj", "{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.Infrastructure", "KafkaFlow\KafkaSample.Infrastracture\KafkaSample.Infrastructure.csproj", "{48967463-C5C9-4EBF-BC34-CBDABCAA739E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +40,22 @@ Global
 		{666972EA-BEAC-49DC-B652-9419000D325C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{666972EA-BEAC-49DC-B652-9419000D325C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{666972EA-BEAC-49DC-B652-9419000D325C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0264C37D-2CC7-4FB5-9798-D1AB44E689E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0264C37D-2CC7-4FB5-9798-D1AB44E689E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0264C37D-2CC7-4FB5-9798-D1AB44E689E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0264C37D-2CC7-4FB5-9798-D1AB44E689E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD5D6E31-5D33-452E-B964-D71111FBBBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD5D6E31-5D33-452E-B964-D71111FBBBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD5D6E31-5D33-452E-B964-D71111FBBBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD5D6E31-5D33-452E-B964-D71111FBBBF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48967463-C5C9-4EBF-BC34-CBDABCAA739E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48967463-C5C9-4EBF-BC34-CBDABCAA739E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48967463-C5C9-4EBF-BC34-CBDABCAA739E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48967463-C5C9-4EBF-BC34-CBDABCAA739E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +63,9 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{876BBC63-AF5F-4071-AF4B-F39441C9849B} = {28C7564C-7D75-4699-A9BB-BFBFEEC214C9}
 		{666972EA-BEAC-49DC-B652-9419000D325C} = {28C7564C-7D75-4699-A9BB-BFBFEEC214C9}
+		{0264C37D-2CC7-4FB5-9798-D1AB44E689E9} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
+		{BD5D6E31-5D33-452E-B964-D71111FBBBF5} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
+		{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
+		{48967463-C5C9-4EBF-BC34-CBDABCAA739E} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
 	EndGlobalSection
 EndGlobal
