@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.PubSub.Producer
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DockerCompose", "DockerCompose", "{CF42E1FE-BA1E-43AB-9B85-D22B2720C449}"
 	ProjectSection(SolutionItems) = preProject
-		DockerCompose\docker-compose-cluster-new.yml = DockerCompose\docker-compose-cluster-new.yml
+		DockerCompose\docker-compose-cluster-old.yml = DockerCompose\docker-compose-cluster-old.yml
 		DockerCompose\docker-compose-cluster.yml = DockerCompose\docker-compose-cluster.yml
 		DockerCompose\docker-compose.yml = DockerCompose\docker-compose.yml
 	EndProjectSection
@@ -25,6 +25,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.WriteStack", "KafkaFlow\KafkaSample.WriteStack\KafkaSample.WriteStack.csproj", "{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.Infrastructure", "KafkaFlow\KafkaSample.Infrastracture\KafkaSample.Infrastructure.csproj", "{48967463-C5C9-4EBF-BC34-CBDABCAA739E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.Producer.Api", "KafkaFlow\KafkaSample.Producer.Api\KafkaSample.Producer.Api.csproj", "{409BC2E5-CD8B-4837-BBE2-4392274B03FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KafkaSample.Concumer.Api", "KafkaFlow\KafkaSample.Concumer.Api\KafkaSample.Concumer.Api.csproj", "{972BAC9F-B4E7-49AC-A843-7C75543BC370}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -56,6 +60,14 @@ Global
 		{48967463-C5C9-4EBF-BC34-CBDABCAA739E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48967463-C5C9-4EBF-BC34-CBDABCAA739E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48967463-C5C9-4EBF-BC34-CBDABCAA739E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{409BC2E5-CD8B-4837-BBE2-4392274B03FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{409BC2E5-CD8B-4837-BBE2-4392274B03FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{409BC2E5-CD8B-4837-BBE2-4392274B03FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{409BC2E5-CD8B-4837-BBE2-4392274B03FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{972BAC9F-B4E7-49AC-A843-7C75543BC370}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{972BAC9F-B4E7-49AC-A843-7C75543BC370}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{972BAC9F-B4E7-49AC-A843-7C75543BC370}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{972BAC9F-B4E7-49AC-A843-7C75543BC370}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -67,5 +79,7 @@ Global
 		{BD5D6E31-5D33-452E-B964-D71111FBBBF5} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
 		{6EA4A5B8-CCFA-4645-8C5A-41607AB9AF47} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
 		{48967463-C5C9-4EBF-BC34-CBDABCAA739E} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
+		{409BC2E5-CD8B-4837-BBE2-4392274B03FA} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
+		{972BAC9F-B4E7-49AC-A843-7C75543BC370} = {2686E5F1-24E3-4310-8360-336ADBC83D7A}
 	EndGlobalSection
 EndGlobal

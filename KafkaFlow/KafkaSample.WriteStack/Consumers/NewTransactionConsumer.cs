@@ -1,26 +1,28 @@
-﻿using System.Text;
-using CQRSDeepDive.ReadStack.Queries;
-using KafkaFlow;
+﻿using KafkaFlow;
 using KafkaFlow.Producers;
 using KafkaSample.Domain.AggregatesModel.CustomerAggregate;
 using KafkaSample.Framework.Infrastructure;
 using KafkaSample.WriteStack.Events;
 using MediatR;
+using System.Text;
+using KafkaSample.ReadStack.Queries;
 
 namespace KafkaSample.WriteStack.Consumers;
 
 public class NewTransactionConsumer(ApplicationWriteDbContext writeDbContext, IMediator mediator, IProducerAccessor producerAccessor) : IMessageHandler<Transaction>
 {
-    public async Task Handle(IMessageContext context,Transaction message)
+    public async Task Handle(IMessageContext context, Transaction message)
     {
-        var product = await mediator.Send(new GetTransactionByNameQuery()
+        var transaction = await mediator.Send(new GetTransactionByDataQuery()
         {
-            Date = message.Date.Value
+            Date = message.Date.Value,
+            FromAccount = message.FromAccount,
+            ToAccount = message.ToAccount
         });
 
-        if (product is not null)
+        if (transaction is not null)
         {
-            throw new Exception($"Product with name: {message.Date} already exists.");
+            throw new Exception($"Transaction with name: {message.Date} already exists.");
         }
 
         //if (message.Quantity <= 0)
@@ -28,15 +30,19 @@ public class NewTransactionConsumer(ApplicationWriteDbContext writeDbContext, IM
         //    throw new Exception($"Quantity is zero or negative.");
         //}
 
-        var transactionEntity = new Transaction(message.FromAccount, message.ToAccount,message.Amount,message.Date);
-        
+        var transactionEntity = new Transaction(message.FromAccount, message.ToAccount, message.Amount, message.Date);
+
         writeDbContext.Transactions.Add(transactionEntity);
         await writeDbContext.SaveChangesAsync(CancellationToken.None);
-        
-        var producer = producerAccessor.GetProducer("Products");
+
+        var producer = producerAccessor.GetProducer("Transactions");
         await producer.ProduceAsync(Encoding.UTF8.GetBytes(transactionEntity.Id.ToString()), new TransactionCreated()
         {
-            
+            Id = transactionEntity.Id,
+            FromAccount=transactionEntity.FromAccount,
+            ToAccount = transactionEntity.ToAccount,
+            Amount = transactionEntity.Amount,
+            Date = transactionEntity.Date.Value
         });
     }
 }

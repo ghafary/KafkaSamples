@@ -1,6 +1,6 @@
-﻿using System.Text.Json;
-using MediatR;
+﻿using MediatR;
 using StackExchange.Redis;
+using System.Text.Json;
 
 namespace KafkaSample.WriteStack.Events;
 
@@ -10,30 +10,30 @@ public class TransactionCreated : INotification
     /// <summary>
     /// حساب مبدا
     /// </summary>
-    public string? FromAccount { get; private set; }
+    public string? FromAccount { get;  set; }
 
     /// <summary>
     /// حساب مقصد
     /// </summary>
-    public string? ToAccount { get; private set; }
+    public string? ToAccount { get; set; }
 
     /// <summary>
     /// مبلغ
     /// </summary>
-    public long Amount { get; private set; }
+    public long Amount { get; set; }
 
     /// <summary>
     /// تاریخ تراکنش 
     /// </summary>
-    public DateTime CreatedAt { get; set; }
+    public DateTime Date { get; set; }
 }
 
-public class ProductCreatedHandler(IConnectionMultiplexer connectionMultiplexer) : INotificationHandler<TransactionCreated>
+public class TransactionCreatedHandler(IConnectionMultiplexer connectionMultiplexer) : INotificationHandler<TransactionCreated>
 {
     public async Task Handle(TransactionCreated notification, CancellationToken cancellationToken)
     {
         await Task.Delay(5000, cancellationToken);
         await connectionMultiplexer.GetDatabase()
-            .StringSetAsync("products:" + notification.Id, JsonSerializer.Serialize(notification));
+            .StringSetAsync("transactions:" + notification.Id, JsonSerializer.Serialize(notification));
     }
 }

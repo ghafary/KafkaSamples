@@ -1,24 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
 
     <ItemGroup>
-      <Compile Remove="Validators\**" />
-      <EmbeddedResource Remove="Validators\**" />
-      <None Remove="Validators\**" />
-    </ItemGroup>
-
-    <ItemGroup>
+      <PackageReference Include="FluentResults" Version="3.16.0" />
       <PackageReference Include="StackExchange.Redis" Version="2.8.16" />
+      <PackageReference Include="Swashbuckle.AspNetCore" Version="7.1.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\KafkaSample.Infrastracture\KafkaSample.Infrastructure.csproj" />
       <ProjectReference Include="..\KafkaSample.ReadStack\KafkaSample.ReadStack.csproj" />
+      <ProjectReference Include="..\KafkaSample.WriteStack\KafkaSample.WriteStack.csproj" />
     </ItemGroup>
 
 </Project>

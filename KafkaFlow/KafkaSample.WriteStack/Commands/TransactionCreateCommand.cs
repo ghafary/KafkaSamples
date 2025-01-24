@@ -1,27 +1,19 @@
-﻿using System.Text;
-using System.Text.Json;
-using System.Text.Unicode;
-
-using KafkaFlow.Producers;
+﻿using KafkaFlow.Producers;
 using KafkaSample.Framework.Infrastructure;
 using KafkaSample.WriteStack.Events;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using StackExchange.Redis;
 
-namespace CQRSDeepDive.WriteStack.Commands;
+namespace KafkaSample.WriteStack.Commands;
 
 public class TransactionCreateCommand : IRequest<int>
 {
-    public string Name { get; set; }
-    public decimal Price { get; set; }
-    public string Description { get; set; }
-    public string Category { get; set; }
+    public string? FromAccount { get; set; }
+    public string? ToAccount { get; set; }
+    public long Amount { get; set; }
     public DateTime CreatedAt { get; set; }
-    public int Quantity { get; set; }
 }
 
-public class ProductCreateCommandHandler(
+public class TransactionCreateCommandHandler(
     ApplicationWriteDbContext applicationWriteDbContext,
     IMediator mediator, IProducerAccessor producerAccessor) : IRequestHandler<TransactionCreateCommand, int>
 {
@@ -31,12 +23,10 @@ public class ProductCreateCommandHandler(
         await producer.ProduceAsync(null, new TransactionCreated()
         {
             // Id = request.Id,
-            //Category = request.Category,
-            //Price = request.Price,
-            //Quantity = request.Quantity,
-            //CreatedAt = request.CreatedAt,
-            //Name = request.Name,
-            //Description = request.Description,
+             Date = request.CreatedAt,
+             Amount= request.Amount,
+             FromAccount= request.FromAccount,
+             ToAccount= request.ToAccount
         });
 
         return 0;
